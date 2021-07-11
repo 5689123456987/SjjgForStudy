@@ -204,95 +204,177 @@
 //}
 
 
-
+//
+//
+//#include<iostream>
+//#include<vector>
+//#include<cmath>
+//#include<set>
+//#include <iomanip>
+//
+//using  namespace std;
+//
+//double maxarea = -99999;
+//class point{
+//public:
+//	point(char cc, int xx, int yy, int zz) :color(cc), pointX(xx), pointY(yy), pointZ(zz) {} //析构函数
+//	char color;
+//	int  pointX;
+//	int pointY;
+//	int pointZ;
+//};
+//
+//double HeronFormal(int a,int b,int c) {	
+//	//求q
+//	double p = (a + b + c) / 2;
+//	//求面积
+//	double area = sqrt(p * (p - a) * (p - b) * (p - c));
+//	return area;
+//}
+//
+//void SideCal(vector<point> &s, set<char> &color_set) {
+//	//if (color_set.size() < 3) {//必须全部同色均R;或者均G
+//	//	for (int i = 0; i < s.size()-2; i++) {
+//	//		for (int j = i + 1; j < s.size() - 1; j++) {
+//	//			for (int k = j + 1; k < s.size(); k++) {
+//	//				if (s[i].color == s[j].color&& s[j].color == s[k].color) {
+//	//					//计算三边长；
+//	//					int side1 = sqrt(pow(s[i].pointX - s[j].pointX, 2) + pow(s[i].pointY - s[j].pointY, 2) + pow(s[i].pointZ - s[j].pointZ, 2));
+//	//					int side2 = sqrt(pow(s[i].pointX - s[k].pointX, 2) + pow(s[i].pointY - s[k].pointY, 2) + pow(s[i].pointZ - s[k].pointZ, 2));
+//	//					int side3 = sqrt(pow(s[k].pointX - s[j].pointX, 2) + pow(s[k].pointY - s[j].pointY, 2) + pow(s[k].pointZ - s[j].pointZ, 2));
+//	//					double calarea = HeronFormal(side1, side2, side3);
+//	//					maxarea = calarea > maxarea ? calarea : maxarea;
+//	//				}
+//	//			}
+//	//		}
+//	//	}
+//	//} 
+//	//if (color_set.size() == 3) {//必须全部同色均R;或者均G
+//	//	for (int i = 0; i < s.size() - 2; i++) {
+//	//		for (int j = i + 1; j < s.size() - 1; j++) {
+//	//			for (int k = j + 1; k < s.size(); k++) {
+//	//				if (s[i].color != s[j].color&& s[j].color != s[k].color && s[i].color != s[k].color ) {
+//	//					//计算三边长；
+//	//					int side1 = sqrt(pow(s[i].pointX - s[j].pointX, 2) + pow(s[i].pointY - s[j].pointY, 2) + pow(s[i].pointZ - s[j].pointZ, 2));
+//	//					int side2 = sqrt(pow(s[i].pointX - s[k].pointX, 2) + pow(s[i].pointY - s[k].pointY, 2) + pow(s[i].pointZ - s[k].pointZ, 2));
+//	//					int side3 = sqrt(pow(s[k].pointX - s[j].pointX, 2) + pow(s[k].pointY - s[j].pointY, 2) + pow(s[k].pointZ - s[j].pointZ, 2));
+//	//					double calarea = HeronFormal(side1, side2, side3);
+//	//					maxarea = calarea > maxarea ? calarea : maxarea;
+//	//				}
+//	//			}
+//	//		}
+//	//	}
+//	//}
+//	for (int i = 0; i < s.size() - 2; i++) {
+//		for (int j = i + 1; j < s.size() - 1; j++) {
+//			for (int k = j + 1; k < s.size(); k++) {
+//				if ((s[i].color == s[j].color && s[j].color == s[k].color) || (s[i].color != s[j].color&& s[j].color != s[k].color && s[i].color != s[k].color) ){
+//					int side1 = sqrt(pow(s[i].pointX - s[j].pointX, 2) + pow(s[i].pointY - s[j].pointY, 2) + pow(s[i].pointZ - s[j].pointZ, 2));
+//					int side2 = sqrt(pow(s[i].pointX - s[k].pointX, 2) + pow(s[i].pointY - s[k].pointY, 2) + pow(s[i].pointZ - s[k].pointZ, 2));
+//					int side3 = sqrt(pow(s[k].pointX - s[j].pointX, 2) + pow(s[k].pointY - s[j].pointY, 2) + pow(s[k].pointZ - s[j].pointZ, 2));
+//					double calarea = HeronFormal(side1, side2, side3);
+//					maxarea = calarea > maxarea ? calarea : maxarea;
+//				}
+//			}
+//		}
+//	}
+//}
+//
+//int main() {
+//	int N;
+//	cin >> N;
+//	vector<point>input_point;
+//	set<char> color_set;
+//	for (int i = 0; i < N; i++) {
+//		char color;
+//		int x, y, z;
+//		cin >> color >> x >> y >> z;
+//		color_set.insert(color);
+//		input_point.push_back(point(color, x, y, z));
+//	}
+//	SideCal(input_point,color_set);
+//	cout << fixed << setprecision(5) << maxarea;
+//	return 0;
+//}
 
 #include<iostream>
-#include<vector>
-#include<cmath>
-#include<set>
-#include <iomanip>
+#include<algorithm>
+//#include<string>
+//using namespace std;
+//int dp[1010][1010];
+//string x, y;
+//
+//
+//int main() {
+//	while (cin >> x) {
+//		y = x;
+//		int length = x.size();
+//		reverse(y.begin(), y.end());
+//		for (int i = 0; i < length; i++)
+//			for (int j = 0; j < length; j++)
+//				if (x[i] == y[j])
+//					dp[i + 1][j + 1] == dp[i][j] + 1;
+//				else
+//					dp[i + 1][j + 1] = max(dp[i][j + 1], dp[i + 1][j]);
+//		cout << length - dp[length][length]<<endl;
+//	}
+//	return 0;
+//}
 
-using  namespace std;
 
-double maxarea = -99999;
-class point{
-public:
-	point(char cc, int xx, int yy, int zz) :color(cc), pointX(xx), pointY(yy), pointZ(zz) {} //析构函数
-	char color;
-	int  pointX;
-	int pointY;
-	int pointZ;
-};
+//#include<iostream>
+//#include<algorithm>
+//#include<string>
+//using namespace std;
+//
+//int main() {
+//
+//	int n;
+//	cin >> n;
+//	string s;
+//	while (n)
+//	{
+//		if (n % 2 == 0) {
+//			n = (n - 2) / 2;
+//			s = '2' + s;
+//		}
+//		else if (n % 2 == 1)
+//		{
+//			n = (n - 1) / 2;
+//			s = '1' + s;
+//		}
+//		else
+//			return 0;
+//	}
+//
+//	cout << s;
+//	return 0;
+//}
 
-double HeronFormal(int a,int b,int c) {	
-	//求q
-	double p = (a + b + c) / 2;
-	//求面积
-	double area = sqrt(p * (p - a) * (p - b) * (p - c));
-	return area;
-}
-
-void SideCal(vector<point> &s, set<char> &color_set) {
-	//if (color_set.size() < 3) {//必须全部同色均R;或者均G
-	//	for (int i = 0; i < s.size()-2; i++) {
-	//		for (int j = i + 1; j < s.size() - 1; j++) {
-	//			for (int k = j + 1; k < s.size(); k++) {
-	//				if (s[i].color == s[j].color&& s[j].color == s[k].color) {
-	//					//计算三边长；
-	//					int side1 = sqrt(pow(s[i].pointX - s[j].pointX, 2) + pow(s[i].pointY - s[j].pointY, 2) + pow(s[i].pointZ - s[j].pointZ, 2));
-	//					int side2 = sqrt(pow(s[i].pointX - s[k].pointX, 2) + pow(s[i].pointY - s[k].pointY, 2) + pow(s[i].pointZ - s[k].pointZ, 2));
-	//					int side3 = sqrt(pow(s[k].pointX - s[j].pointX, 2) + pow(s[k].pointY - s[j].pointY, 2) + pow(s[k].pointZ - s[j].pointZ, 2));
-	//					double calarea = HeronFormal(side1, side2, side3);
-	//					maxarea = calarea > maxarea ? calarea : maxarea;
-	//				}
-	//			}
-	//		}
-	//	}
-	//} 
-	//if (color_set.size() == 3) {//必须全部同色均R;或者均G
-	//	for (int i = 0; i < s.size() - 2; i++) {
-	//		for (int j = i + 1; j < s.size() - 1; j++) {
-	//			for (int k = j + 1; k < s.size(); k++) {
-	//				if (s[i].color != s[j].color&& s[j].color != s[k].color && s[i].color != s[k].color ) {
-	//					//计算三边长；
-	//					int side1 = sqrt(pow(s[i].pointX - s[j].pointX, 2) + pow(s[i].pointY - s[j].pointY, 2) + pow(s[i].pointZ - s[j].pointZ, 2));
-	//					int side2 = sqrt(pow(s[i].pointX - s[k].pointX, 2) + pow(s[i].pointY - s[k].pointY, 2) + pow(s[i].pointZ - s[k].pointZ, 2));
-	//					int side3 = sqrt(pow(s[k].pointX - s[j].pointX, 2) + pow(s[k].pointY - s[j].pointY, 2) + pow(s[k].pointZ - s[j].pointZ, 2));
-	//					double calarea = HeronFormal(side1, side2, side3);
-	//					maxarea = calarea > maxarea ? calarea : maxarea;
-	//				}
-	//			}
-	//		}
-	//	}
-	//}
-	for (int i = 0; i < s.size() - 2; i++) {
-		for (int j = i + 1; j < s.size() - 1; j++) {
-			for (int k = j + 1; k < s.size(); k++) {
-				if ((s[i].color == s[j].color && s[j].color == s[k].color) || (s[i].color != s[j].color&& s[j].color != s[k].color && s[i].color != s[k].color) ){
-					int side1 = sqrt(pow(s[i].pointX - s[j].pointX, 2) + pow(s[i].pointY - s[j].pointY, 2) + pow(s[i].pointZ - s[j].pointZ, 2));
-					int side2 = sqrt(pow(s[i].pointX - s[k].pointX, 2) + pow(s[i].pointY - s[k].pointY, 2) + pow(s[i].pointZ - s[k].pointZ, 2));
-					int side3 = sqrt(pow(s[k].pointX - s[j].pointX, 2) + pow(s[k].pointY - s[j].pointY, 2) + pow(s[k].pointZ - s[j].pointZ, 2));
-					double calarea = HeronFormal(side1, side2, side3);
-					maxarea = calarea > maxarea ? calarea : maxarea;
-				}
-			}
-		}
-	}
-}
-
-int main() {
-	int N;
-	cin >> N;
-	vector<point>input_point;
-	set<char> color_set;
-	for (int i = 0; i < N; i++) {
-		char color;
-		int x, y, z;
-		cin >> color >> x >> y >> z;
-		color_set.insert(color);
-		input_point.push_back(point(color, x, y, z));
-	}
-	SideCal(input_point,color_set);
-	cout << fixed << setprecision(5) << maxarea;
-	return 0;
-}
+//#include<iostream>
+//#include<algorithm>
+//#include<vector>
+//using namespace std;
+//
+//int main() {
+//	int num;
+//	int sumnum = 0;
+//	cin >> num;
+//	sumnum += num;
+//	vector<int> nums;
+//	while (num)
+//	{
+//		int numssplit = 0;
+//		numssplit = num % 10;
+//		nums.push_back(numssplit);
+//		num = num / 10;
+//	}
+//	int reversenum = 0;
+//	int len = nums.size();
+//	for (int i = 0; i < nums.size(); i++) {
+//		reversenum += nums[i] * pow(10,len - 1);
+//		len--;
+//	}
+//	cout << reversenum + sumnum;
+//	//reverse(nums.begin(), nums.end());
+//}

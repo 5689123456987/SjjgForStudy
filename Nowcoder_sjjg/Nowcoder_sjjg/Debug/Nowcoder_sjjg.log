@@ -1,8 +1,4 @@
 ﻿  Nowcoder_sjjg.cpp
-c:\users\1\desktop\考研\sjjg\nowcoder_sjjg\nowcoder_sjjg\nowcoder_sjjg.cpp(268): warning C4018: “<”: 有符号/无符号不匹配
-c:\users\1\desktop\考研\sjjg\nowcoder_sjjg\nowcoder_sjjg\nowcoder_sjjg.cpp(269): warning C4018: “<”: 有符号/无符号不匹配
-c:\users\1\desktop\考研\sjjg\nowcoder_sjjg\nowcoder_sjjg\nowcoder_sjjg.cpp(270): warning C4018: “<”: 有符号/无符号不匹配
-c:\users\1\desktop\考研\sjjg\nowcoder_sjjg\nowcoder_sjjg\nowcoder_sjjg.cpp(272): warning C4244: “初始化”: 从“double”转换到“int”，可能丢失数据
-c:\users\1\desktop\考研\sjjg\nowcoder_sjjg\nowcoder_sjjg\nowcoder_sjjg.cpp(273): warning C4244: “初始化”: 从“double”转换到“int”，可能丢失数据
-c:\users\1\desktop\考研\sjjg\nowcoder_sjjg\nowcoder_sjjg\nowcoder_sjjg.cpp(274): warning C4244: “初始化”: 从“double”转换到“int”，可能丢失数据
+c:\users\1\desktop\考研\sjjg\nowcoder_sjjg\nowcoder_sjjg\nowcoder_sjjg.cpp(374): warning C4018: “<”: 有符号/无符号不匹配
+c:\users\1\desktop\考研\sjjg\nowcoder_sjjg\nowcoder_sjjg\nowcoder_sjjg.cpp(375): warning C4244: “+=”: 从“double”转换到“int”，可能丢失数据
   Nowcoder_sjjg.vcxproj -> C:\Users\1\Desktop\考研\SJJG\Nowcoder_sjjg\Debug\Nowcoder_sjjg.exe
